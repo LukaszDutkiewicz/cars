@@ -15,7 +15,7 @@ class ModelsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('models')->truncate();
+        //DB::table('models')->truncate();
         $faker = (new \Faker\Factory())::create();
         $faker->addProvider(new \Faker\Provider\Fakecar($faker));
         $data = [];

@@ -12,14 +12,17 @@
     <div class="container">
         <h3>Samochody</h3>
         <div class="cars">
+
             <table>
                 <thead>
                     <tr>
                         <th>Lp</th>
-                        <th>Marka</th>
+                        <th>VIN</th>
                         <th>Model</th>
                         <th>Kolor</th>
+                        <th>Cena</th>
                         <th>Szczegóły</th>
+                        <th>Usuń</th>
 
                     </tr>
                 </thead>
@@ -27,14 +30,22 @@
                     @foreach ($cars as $car)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $car[0] }}</td>
-                            <td>{{ $car[1] }}</td>
-                            <td>{{ $car[2] }}</td>
-                            <th><a href="/cars/show/{{ $loop->iteration }}">Zobacz</a></th>
+                            <td>{{ $car->vin }}</td>
+                            <td>{{ $car->model }}</td>
+                            <td>{{ $car->color }}</td>
+                            <td>{{ $car->price }}</td>
+                            <td><a href="{{ route('cars.show', ['id' => $car->id]) }}">Zobacz</a></td>
+                            <td>
+                                <form action="{{ route('cars.destroy', ['id' => $car->id]) }}" method="get">
+                                    <button type="submit">Usuń</button>
+                                </form>
+
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
             <a href="/home">Strona główna</a>
         </div>
     </div>
