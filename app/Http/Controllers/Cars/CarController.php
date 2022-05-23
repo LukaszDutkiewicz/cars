@@ -3,18 +3,25 @@
 namespace App\Http\Controllers\Cars;
 
 use App\Http\Controllers\Controller;
+use App\Services\Cars\CarService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CarController extends Controller
 {
+
+    public CarService $carsService;
+
+    public function __construct(CarService $carService)
+    {
+        $this->carService = $carService;
+    }
+
     public function show($id)
     {
-        //$cars = [['audi', 'RS7', 'czerwone'], ['opel', 'crosa', 'zielona'], ['BMW', 'i3', 'dresowe'], ['fiat', 'Punto', 'biały'], ['mercedes', 'gle', 'duży']];
-        //$car = $cars[$id - 1];
-        //$car = DB::table('cars')->where('id', $id)->first();
-        $car = DB::table('cars')->find($id);
-        return view('Cars.show', ['car' => $car]);
+        //$car = DB::table('cars')->find($id);
+        $car = $this->carService->show($id);
+        return view('cars.show', ['car' => $car]);
     }
 
     public function destroy($id)

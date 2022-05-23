@@ -3,17 +3,28 @@
 namespace App\Http\Controllers\Cars;
 
 use App\Http\Controllers\Controller;
+use App\Services\Cars\CarsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CarsController extends Controller
 {
-    public function list()
+
+    public CarsService $carsService;
+
+    public function __construct(CarsService $carsService)
     {
-        //$cars = [['audi', 'RS7', 'czerwone'], ['opel', 'crosa', 'zielona'], ['BMW', 'i3', 'dresowe'], ['fiat', 'Punto', 'biały'], ['mercedes', 'gle', 'duży']];
-        //return view('cars.list',['cars'=>$cars]);
-        $cars = DB::table('cars')->get();
-        //dd($cars);
+        $this->carsService = $carsService;
+    }
+
+    public function list(Request $request)
+    {
+        $vin = $request->get('vin');
+        $color = $request->get('color');
+        $model = $request->get('model');
+        $minPrice = $request->get('minPrice') ? $request->get('minPrice') : 0;
+        $description = $request->get('description');
+        $cars = $this->carsService->list($vin, $model, $description, $color,  $minPrice);
         return view('cars.list', ['cars' => $cars]);
     }
 }

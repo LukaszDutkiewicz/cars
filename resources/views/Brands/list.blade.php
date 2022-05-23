@@ -12,31 +12,38 @@
     <div class="container">
         <h3>Marki</h3>
         <div class="brands">
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Lp</th>
-                        <th>Nazwa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($brands as $brand)
+            <form action="{{ route('cars.list') }}" method="get">
+                <div style="display: inline-block; margin: 3px;">
+                    <label for="name">Nazwa</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div style="display: inline-block; margin: 3px;">
+                    <button type="submit">Filtruj</button>
+                </div>
+                <table>
+                    <thead>
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $brand->name }}</td>
-                            <td>
-                                <form action="{{ route('brands.destroy', ['id' => $brand->id]) }}" method="get">
-                                    <button type="submit">Usuń</button>
-                                </form>
-
-                            </td>
+                            <th>Lp</th>
+                            <th>Nazwa</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($brands as $brand)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $brand->name }}</td>
+                                <td>
+                                    <form action="{{ route('brands.destroy', ['id' => $brand->id]) }}" method="get">
+                                        <button type="submit">Usuń</button>
+                                    </form>
 
-            <a href="/home">Strona główna</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{-- </form> --}}
+                <a href="/home">Strona główna</a>
         </div>
     </div>
 </body>
