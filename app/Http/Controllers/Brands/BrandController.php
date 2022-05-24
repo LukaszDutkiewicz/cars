@@ -17,13 +17,13 @@ class BrandController extends Controller
     }
     public function show($id)
     {
-        $brand = $this->carService->show($id);
+        $brand = $this->brandService->show($id);
         return view('brands.show', ['brand' => $brand]);
     }
 
     public function destroy($id)
     {
-        DB::table('brand')->where('id', $id)->delete();
+        $this->brandService->destroy($id);
         return redirect()->route('brands.list');
     }
 }

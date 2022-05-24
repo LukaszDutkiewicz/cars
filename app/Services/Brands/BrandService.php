@@ -19,4 +19,8 @@ class BrandService
     {
         return $this->brandModel->find($id);
     }
+    public function destroy($id)
+    {
+        $this->brandModel->destroy($id);
+    }
 }

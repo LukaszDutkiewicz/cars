@@ -56,7 +56,7 @@
                                 <td>{{ $car->price }}</td>
                                 <td><a href="{{ route('cars.show', ['id' => $car->id]) }}">Zobacz</a></td>
                                 <td>
-                                    <form action="{{ route('cars.destroy', ['id' => $car->id]) }}" method="get">
+                                    <form action="{{ route('cars.destroy', ['id' => $car->id]) }}" method="post">
                                         <button type="submit">Usuń</button>
                                     </form>
 

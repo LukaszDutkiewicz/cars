@@ -19,14 +19,13 @@ class CarController extends Controller
 
     public function show($id)
     {
-        //$car = DB::table('cars')->find($id);
         $car = $this->carService->show($id);
         return view('cars.show', ['car' => $car]);
     }
 
     public function destroy($id)
     {
-        DB::table('cars')->where('id', $id)->delete();
+        $this->carService->destroy($id);
         return redirect()->route('cars.list');
     }
 }

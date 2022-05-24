@@ -17,6 +17,6 @@ class BrandsService
     }
     public function list($name)
     {
-        return $this->brandModel->filterByName($name);
+        return $this->brandModel->filterByName($name)->get();
     }
 }

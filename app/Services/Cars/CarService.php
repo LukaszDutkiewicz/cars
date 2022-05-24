@@ -17,6 +17,10 @@ class CarService
     }
     public function show($id)
     {
-        return $this->carModel->find($id);
+        return $this->carModel->with('brand', 'model')->find($id);
+    }
+    public function destroy($id)
+    {
+        $this->carModel->destroy($id);
     }
 }

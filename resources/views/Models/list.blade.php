@@ -25,8 +25,9 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $model->name }}</td>
+                            <td><a href="{{ route('models.show', ['id' => $model->id]) }}">Zobacz</a></td>
                             <td>
-                                <form action="{{ route('models.destroy', ['id' => $model->id]) }}" method="get">
+                                <form action="{{ route('models.destroy', ['id' => $model->id]) }}" method="post">
                                     <button type="submit">Usuń</button>
                                 </form>
 

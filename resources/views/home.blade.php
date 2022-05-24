@@ -13,6 +13,8 @@
         <h1>Home</h1>
         <ul>
             <li><a href="{{ route('cars.list') }}">Samochody</a></li>
+            <li><a href="{{ route('brands.list') }}">Marki</a></li>
+            <li><a href="{{ route('models.list') }}">Modele</a></li>
         </ul>
     </div>
 </body>

@@ -9,6 +9,16 @@ class Car extends EloquentModel
 {
     use HasFactory;
 
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function model()
+    {
+        return $this->belongsTo(Model::class);
+    }
+
     public function scopeFilterByVin($query, $vin)
     {
         return $query->where('vin', 'like', '%' . $vin . '%');

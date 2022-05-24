@@ -8,8 +8,6 @@ class HomeController extends Controller
 {
     public function homePage()
     {
-        dump(2);
-        // dd(1);
         return view('home');
     }
 }
