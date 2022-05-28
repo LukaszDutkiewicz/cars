@@ -18,10 +18,6 @@
                     <input type="text" name="vin" id="vin">
                 </div>
                 <div style="display: inline-block; margin: 3px;">
-                    <label for="model">Model</label>
-                    <input type="text" name="model" id="model">
-                </div>
-                <div style="display: inline-block; margin: 3px;">
                     <label for="color">Kolor</label>
                     <input type="text" name="color" id="color">
                 </div>
@@ -38,7 +34,6 @@
                         <tr>
                             <th>Lp</th>
                             <th>VIN</th>
-                            <th>Model</th>
                             <th>Kolor</th>
                             <th>Cena</th>
                             <th>Szczegóły</th>
@@ -51,7 +46,6 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $car->vin }}</td>
-                                <td>{{ $car->model }}</td>
                                 <td>{{ $car->color }}</td>
                                 <td>{{ $car->price }}</td>
                                 <td><a href="{{ route('cars.show', ['id' => $car->id]) }}">Zobacz</a></td>

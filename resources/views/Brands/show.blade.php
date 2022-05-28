@@ -11,7 +11,23 @@
 <body>
     <div class="container">
         <h1>{{ $brand->name }}</h1>
-        <h3>Szczegóły</h3>
+        <div>
+            <strong>Id: </strong><span>{{ $brand->id }}</span>
+        </div>
+        <ol>
+            @foreach ($brand->cars as $car)
+                <li>
+                    <ul>
+                        <li><strong>VIN:</strong> {{ $car->vin }}</li>
+                        <li><strong>Kolor:</strong> {{ $car->color }}</li>
+                        <li><strong>Cena:</strong>{{ $car->price }}</li>
+                        <li><strong>Model:</strong> {{ $car->model->name }}</li>
+                        <br>
+                    </ul>
+                </li>
+            @endforeach
+        </ol>
+
         <a href="{{ route('brands.list') }}">Powrót</a>
     </div>
 </body>

@@ -24,7 +24,6 @@ class CarsSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             $data[] = ['vin' => $fakerCars->vin(), 'model' => $fakerCars->vehicleModel(), 'description' => $fakerCars->vehicleType(), 'color' => $faker->colorName(), 'price' => $faker->numberBetween(1000, 10000), 'brand_id' => $faker->numberBetween(1, 20), 'model_id' => $faker->numberBetween(1, 20)];
         }
-        //$data = ['vin' => 12345, 'model' => '126p', 'description' => 'maluch', 'color' => 'red', 'price' => 123, 'brand_id' => NULL];
         DB::table('cars')->insert($data);
     }
 }

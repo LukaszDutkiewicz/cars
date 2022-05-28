@@ -21,10 +21,9 @@ class CarsController extends Controller
     {
         $vin = $request->get('vin');
         $color = $request->get('color');
-        $model = $request->get('model');
         $minPrice = $request->get('minPrice') ? $request->get('minPrice') : 0;
         $description = $request->get('description');
-        $cars = $this->carsService->list($vin, $model, $description, $color,  $minPrice);
+        $cars = $this->carsService->list($vin, $description, $color, $minPrice);
         return view('cars.list', ['cars' => $cars]);
     }
 }

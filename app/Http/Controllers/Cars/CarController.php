@@ -28,4 +28,26 @@ class CarController extends Controller
         $this->carService->destroy($id);
         return redirect()->route('cars.list');
     }
+
+    public function getCreateView()
+    {
+        return view('cars.create');
+    }
+
+    public function create(Request $request)
+    {
+        $car = $request->all();
+        $this->carService->create($car);
+        return redirect()->route('cars.list');
+    }
+
+    public function getUpdateView($id)
+    {
+        $car = $this->carService->show($id);
+        return view('view.update');
+    }
+
+    public function update(Request $request, $id)
+    {
+    }
 }

@@ -23,4 +23,9 @@ class CarService
     {
         $this->carModel->destroy($id);
     }
+
+    public function create($car)
+    {
+        $this->carModel::create($car);
+    }
 }

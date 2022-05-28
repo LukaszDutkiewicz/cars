@@ -26,13 +26,21 @@ Route::group(
     ['prefix' => '/cars/', 'as' => 'cars.'],
     function () {
 
-        Route::get('/list', [CarsController::class, 'list'])->name('list');
+        Route::get('list', [CarsController::class, 'list'])->name('list');
 
-        Route::get('/show/{id}', [CarController::class, 'show'])->name('show');
+        Route::get('show/{id}', [CarController::class, 'show'])->name('show');
 
-        Route::get('/models', [BrandsController::class, 'models'])->name('models');
+        Route::get('models', [BrandsController::class, 'models'])->name('models');
 
         Route::post('destroy/{id}', [CarController::class, 'destroy'])->name('destroy');
+
+        Route::get('create', [CarController::class, 'getCreateView'])->name('getCreateView');
+
+        Route::post('create', [CarController::class, 'create'])->name('create');
+
+        Route::get('update/{id}', [CarController::class, 'getUpdateView'])->name('getUpdateView');
+
+        Route::post('update/{id}', [CarController::class, 'update'])->name('update');
     }
 
 );

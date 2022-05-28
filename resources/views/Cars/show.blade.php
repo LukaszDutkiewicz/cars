@@ -17,8 +17,7 @@
             <li><strong>Cena: </strong>{{ $car->price }}</li>
             <li><strong>Opis: </strong>{{ $car->description }}</li>
             <li><strong>Marka: </strong>{{ $car->brand->name }}</li>
-            <li><strong>Model: </strong>{{ $car->model }}</li>
-
+            <li><strong>Model: </strong>{{ $car->model->name }}</li> {{-- model z tabeli cars a nie z relacji --}}
         </ul>
         <a href="{{ route('cars.list') }}">Powrót</a>
     </div>

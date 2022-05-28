@@ -11,7 +11,7 @@ class Brand extends EloquentModel
 
     public function cars()
     {
-        return $this->hasMany(Cars::class);
+        return $this->hasMany(Car::class);
     }
 
     public function scopeFilterByName($query, $name)

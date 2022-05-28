@@ -15,8 +15,8 @@ class CarsService
     {
         $this->carModel = $carModel;
     }
-    public function list($vin, $model, $description, $color, $minPrice)
+    public function list($vin, $description, $color, $minPrice)
     {
-        return $this->carModel->filterByVin($vin)->filterByModel($model)->filterByDescription($description)->filterByColor($color)->filterByPrice($minPrice)->get();
+        return $this->carModel->filterByVin($vin)->filterByDescription($description)->filterByColor($color)->filterByPrice($minPrice)->get();
     }
 }

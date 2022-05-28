@@ -9,6 +9,8 @@ class Car extends EloquentModel
 {
     use HasFactory;
 
+    protected $fillable = ['vin', 'description', 'color', 'price'];
+
     public function brand()
     {
         return $this->belongsTo(Brand::class);
@@ -24,10 +26,6 @@ class Car extends EloquentModel
         return $query->where('vin', 'like', '%' . $vin . '%');
     }
 
-    public function scopeFilterByModel($query, $model)
-    {
-        return $query->where('model', 'like', '%' . $model . '%');
-    }
     public function scopeFilterByDescription($query, $description)
     {
         return $query->where('description', 'like', '%' . $description . '%');
