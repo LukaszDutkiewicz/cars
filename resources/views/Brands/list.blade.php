@@ -12,6 +12,9 @@
     <div class="container">
         <h3>Marki</h3>
         <div class="brands">
+            <div class="nav">
+                <a href="/">Strona główna</a>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -35,7 +38,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <a href="/home">Strona główna</a>
+
         </div>
     </div>
 </body>

@@ -44,10 +44,13 @@ class CarController extends Controller
     public function getUpdateView($id)
     {
         $car = $this->carService->show($id);
-        return view('view.update');
+        return view('cars.update', ['car' => $car]);
     }
 
     public function update(Request $request, $id)
     {
+        $newCar = $request->all();
+        $this->carService->update($newCar, $id);
+        return redirect()->route('cars.list');
     }
 }

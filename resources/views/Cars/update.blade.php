@@ -11,14 +11,19 @@
 <body>
     <div class=container>
         <h1>Dodaj samochód</h1>
-        <form action="{{ route('cars.create') }}" method="post">
+        <div class="nav">
+            <a href="{{ route('cars.list') }}">Powrót</a>
+            <br>
+            <br>
+        </div>
+        <form action="{{ route('cars.update', ['id' => $car->id]) }}" method="post">
             <div>
                 <label for="vin">Vin</label>
                 <input type="text" name="vin" id="vin" value="{{ $car->vin }}">
             </div>
             <div>
                 <label for="description">Opis</label>
-                <input type="text" name="description" id="description" value="{{ $car->descrition }}">
+                <input type="text" name="description" id="description" value="{{ $car->description }}">
             </div>
             <div>
                 <label for="color">Kolor</label>
@@ -41,9 +46,9 @@
                 <label for="model_id">Model</label>
                 <input type="number" name="model_id" id="model_id" value="{{ $car->model_id }}">
             </div>
-            <button type="submit">Dodaj</button>
+            <button type="submit">Zaktualizuj</button>
         </form>
-        <a href="{{ route('cars.list') }}">Powrót</a>
+
     </div>
 </body>
 

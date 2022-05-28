@@ -10,7 +10,14 @@
 
 <body>
     <div class=container>
-        <h1>Dodaj samochód</h1>
+        <h1>Stwórz samochód</h1>
+        <div class="nav">
+            <div><a href="/">Strona główna</a></div>
+            <br>
+            <div><a href="{{ route('cars.list') }}">Samochody</a></div>
+            <br>
+        </div>
+
         <form action="{{ route('cars.create') }}" method="post">
             <div>
                 <label for="vin">Vin</label>
@@ -42,7 +49,6 @@
             </div>
             <button type="submit">Dodaj</button>
         </form>
-        <a href="{{ route('cars.list') }}">Powrót</a>
     </div>
 </body>
 

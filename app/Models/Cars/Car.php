@@ -9,7 +9,7 @@ class Car extends EloquentModel
 {
     use HasFactory;
 
-    protected $fillable = ['vin', 'description', 'color', 'price'];
+    protected $fillable = ['vin', 'description', 'color', 'price', 'model_id', 'brand_id'];
 
     public function brand()
     {
@@ -36,7 +36,7 @@ class Car extends EloquentModel
         return $query->where('color', 'like', '%' . $color . '%');
     }
 
-    public function scopeFilterByprice($query, $minPrice)
+    public function scopeFilterByPrice($query, $minPrice)
     {
         return $query->where('price', '>', $minPrice);
     }

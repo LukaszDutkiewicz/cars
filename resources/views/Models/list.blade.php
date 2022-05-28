@@ -12,7 +12,9 @@
     <div class="container">
         <h3>Modele</h3>
         <div class="brands">
-
+            <div class="nav">
+                <a href="/">Strona główna</a>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -37,7 +39,7 @@
                 </tbody>
             </table>
 
-            <a href="/home">Strona główna</a>
+
         </div>
     </div>
 </body>

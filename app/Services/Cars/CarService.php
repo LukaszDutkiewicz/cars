@@ -28,4 +28,10 @@ class CarService
     {
         $this->carModel::create($car);
     }
+
+    public function update($newCar, $id)
+    {
+        $car = $this->show($id);
+        $car->update($newCar);
+    }
 }
