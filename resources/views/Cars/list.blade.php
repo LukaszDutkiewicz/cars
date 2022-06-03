@@ -68,6 +68,7 @@
                             <td><a href="{{ route('cars.update', ['id' => $car->id]) }}">Edytuj</a></td>
                             <td>
                                 <form action="{{ route('cars.destroy', ['id' => $car->id]) }}" method="post">
+                                    @csrf
                                     <button type="submit">Usuń</button>
                                 </form>
 

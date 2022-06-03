@@ -47,6 +47,7 @@
                 <label for="model_id">Model</label>
                 <input type="number" name="model_id" id="model_id">
             </div>
+            @csrf
             <button type="submit">Dodaj</button>
         </form>
     </div>

@@ -46,6 +46,7 @@
                 <label for="model_id">Model</label>
                 <input type="number" name="model_id" id="model_id" value="{{ $car->model_id }}">
             </div>
+            @csrf
             <button type="submit">Zaktualizuj</button>
         </form>
 

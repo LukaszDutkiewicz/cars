@@ -9,7 +9,7 @@ class Car extends EloquentModel
 {
     use HasFactory;
 
-    protected $fillable = ['vin', 'description', 'color', 'price', 'model_id', 'brand_id'];
+    protected $fillable = ['vin', 'description', 'color', 'price', 'model_id', 'brand_id', 'user_id'];
 
     public function brand()
     {
@@ -19,6 +19,11 @@ class Car extends EloquentModel
     public function model()
     {
         return $this->belongsTo(Model::class);
+    }
+
+    public function user_id()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function scopeFilterByVin($query, $vin)
