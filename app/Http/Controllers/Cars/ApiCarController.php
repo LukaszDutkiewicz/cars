@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Services\Cars\CarService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use App\Http\Requests\Cars\CreateCarRequest;
 
 class ApiCarController extends Controller
@@ -22,14 +21,12 @@ class ApiCarController extends Controller
     public function show($id)
     {
         $car = $this->carService->show($id);
-        // return view('cars.show', ['car' => $car]);
         return response()->json(['car' => $car]);
     }
 
     public function destroy($id)
     {
         $this->carService->destroy($id);
-        // return redirect()->route('cars.list');
         return response()->json(['message' => 'usunieto']);
     }
 
@@ -42,9 +39,7 @@ class ApiCarController extends Controller
     {
         $validator = $request->validated();
         $car = $request->all();
-        // $car['user_id'] = $request->user()->id;
         $this->carService->create($car);
-        // return redirect()->route('cars.list');
         return response()->json(['message' => 'Prawidlowo dodano samochód']);
     }
 
@@ -58,7 +53,6 @@ class ApiCarController extends Controller
     {
         $newCar = $request->all();
         $this->carService->update($newCar, $id);
-        // return redirect()->route('cars.list');
         return response()->json(["message" => 'Prawidlowo zaktualizowano']);
     }
 }

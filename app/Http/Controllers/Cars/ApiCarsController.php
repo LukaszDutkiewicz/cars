@@ -24,7 +24,6 @@ class ApiCarsController extends Controller
         $minPrice = $request->get('minPrice') ? $request->get('minPrice') : 0;
         $description = $request->get('description');
         $cars = $this->carsService->list($vin, $description, $color, $minPrice);
-        // return view('cars.list', ['cars' => $cars]);
         return response()->json(['cars' => $cars]);
     }
 }

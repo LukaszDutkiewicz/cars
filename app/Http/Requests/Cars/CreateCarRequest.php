@@ -26,10 +26,12 @@ class CreateCarRequest extends FormRequest
         return [
             'vin' => 'required_wihout:registration|min:4|max:10|unique:cars',
             'color' => 'required|string',
-            'price' => 'int',
+            'price' => 'integer',
             'description' => 'string',
             'registration' => 'required_without:vin',
-            'registraion_date' => 'date'
+            'registraion_date' => 'date',
+            'model_id' => 'required|integer',
+            'brand_id' => 'required|integer',
         ];
     }
     /**
@@ -39,6 +41,7 @@ class CreateCarRequest extends FormRequest
      */
     public function messages()
     {
+        return ["ok"];
         return [
             'vin.required_without' => 'vin jest wymagany jesli nie ma rejestracji',
             'vin.min:4' => 'vin musi mieć minimum 4 znaki',
@@ -48,7 +51,8 @@ class CreateCarRequest extends FormRequest
             'color.string' => 'kolor musi być tekstem',
             'price.int' => 'cena musi być liczba',
             'description.string' => 'opis musi być tekstem',
-            'registration.required_without' => 'rejestracja jest wmagana bez vinu'
+            'registration.required_without' => 'rejestracja jest wmagana bez vinu',
+            'model_id.required' => 'model jest wymagany'
         ];
     }
 }

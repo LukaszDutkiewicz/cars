@@ -21,6 +21,10 @@ use App\Http\Controllers\Users\UsersController;
 |
 */
 
+Route::get('vue-test', function () {
+    return view('test');
+});
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -82,4 +86,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('vue-test', function () {
+    return view('test');
+});
