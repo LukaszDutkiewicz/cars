@@ -34,6 +34,10 @@
                 <input type="text" name="price" id="price" value="{{ $car->price }}">
             </div>
             <div>
+                <label for="registration">Numer rejestracyjny</label>
+                <input type="text" name="registration" id="registration" value="{{ $car->registration_date }}">
+            </div>
+            <div>
                 <label for="registration_date">Data rejestracji</label>
                 <input type="date" name="registration_date" id="registration_date"
                     value="{{ $car->registration_date }}">

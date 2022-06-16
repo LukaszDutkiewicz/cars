@@ -33,11 +33,19 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    public $modules = ['cars'];
+
     public function boot()
     {
         $this->configureRateLimiting();
 
         $this->routes(function () {
+            foreach ($this->modules as $module) {
+                Route::middleware('api')
+                    ->prefix('main-api/' . $module)
+                    ->namespace($this->namespace)
+                    ->group(base_path('routes/main-api/' . $module . '.php'));
+            }
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)

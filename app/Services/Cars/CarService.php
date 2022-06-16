@@ -17,7 +17,7 @@ class CarService
     }
     public function show($id)
     {
-        return $this->carModel->with('brand', 'model')->find($id);
+        return $this->carModel->with('brand')->with('model')->find($id);
     }
     public function destroy($id)
     {
@@ -33,5 +33,20 @@ class CarService
     {
         $car = $this->show($id);
         $car->update($newCar);
+    }
+
+    public function addPhoto($file, $id)
+    {
+        $fileName = $id . '.jpg';
+        $this->putToStorage($file, $fileName);
+        $car = $this->show($id);
+        $car->photo = $fileName;
+        $car->save();
+    }
+
+    public function putToStorage($file, $fileName)
+    {
+        //dd($file);
+        $file->storeAs('public', $fileName);
     }
 }

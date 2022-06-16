@@ -17,8 +17,25 @@
             <li><strong>Cena: </strong>{{ $car->price }}</li>
             <li><strong>Opis: </strong>{{ $car->description }}</li>
             <li><strong>Marka: </strong>{{ $car->brand->name }}</li>
-            <li><strong>Model: </strong>{{ $car->model->name }}</li> {{-- model z tabeli cars a nie z relacji --}}
+            <li><strong>Model: </strong>{{ $car->model->name }}</li>
+            <li><strong>Rejestracja: </strong>{{ $car->registration }}</li>
+            <li><strong>Data rejestracji: </strong>{{ $car->registration_date }}</li>
+
         </ul>
+        @if ($car->photo)
+            <img src="/storage/{{ $car->photo }}" alt="" width=200>
+        @endif
+        <form action="{{ route('cars.addPhoto') }}" method='post' enctype="multipart/form-data">
+            @csrf
+            <div>
+                <label for="file">Zdjęcie</label>
+                <input type="file" id="file" name='file' accept="image/jpeg">
+            </div>
+            <div>
+                <button type="submit">Dodaj</button>
+            </div>
+            <input type="hidden" name="id" value="{{ $car->id }}">
+        </form>
         <a href="{{ route('cars.list') }}">Powrót</a>
     </div>
 </body>

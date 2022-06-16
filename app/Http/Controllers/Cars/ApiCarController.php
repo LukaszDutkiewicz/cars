@@ -7,6 +7,8 @@ use App\Services\Cars\CarService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\Http\Requests\Cars\CreateCarRequest;
+
 class ApiCarController extends Controller
 {
 
@@ -36,8 +38,9 @@ class ApiCarController extends Controller
         return view('cars.create');
     }
 
-    public function create(Request $request)
+    public function create(CreateCarRequest $request)
     {
+        $validator = $request->validated();
         $car = $request->all();
         // $car['user_id'] = $request->user()->id;
         $this->carService->create($car);

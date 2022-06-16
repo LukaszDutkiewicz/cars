@@ -16,11 +16,11 @@ class CreateCars extends Migration
         //Schema::dropIfExists('cars');
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->text('vin')->unique();
-            $table->string('model')->nullable();
-            $table->text('description')->nullable();
+            $table->string('vin')->unique()->nullable();
+            $table->string('description')->nullable();
             $table->string('color')->nullable();
             $table->integer('price')->nullable()->unsigned();
+            $table->string('registration')->nullable();
             $table->date('registration_date')->nullable();
             $table->timestamps();
         });

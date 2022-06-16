@@ -22,7 +22,7 @@ class CarsSeeder extends Seeder
         $fakerCars->addProvider(new \Faker\Provider\Fakecar($fakerCars));
         $data = [];
         for ($i = 0; $i < 30; $i++) {
-            $data[] = ['vin' => $fakerCars->vin(), 'model' => $fakerCars->vehicleModel(), 'description' => $fakerCars->vehicleType(), 'color' => $faker->colorName(), 'price' => $faker->numberBetween(1000, 10000), 'brand_id' => $faker->numberBetween(1, 20), 'model_id' => $faker->numberBetween(1, 20)];
+            $data[] = ['vin' => $fakerCars->vin(), 'description' => $fakerCars->vehicleType(), 'color' => $faker->colorName(), 'price' => $faker->numberBetween(1000, 10000), 'registration' => $fakerCars->vehicleRegistration(), 'registration_date' => $faker->date(), 'brand_id' => $faker->numberBetween(1, 20), 'model_id' => $faker->numberBetween(1, 20)];
         }
         DB::table('cars')->insert($data);
     }

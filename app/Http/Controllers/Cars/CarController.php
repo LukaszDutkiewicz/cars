@@ -37,6 +37,7 @@ class CarController extends Controller
     public function create(Request $request)
     {
         $car = $request->all();
+        dd($car);
         $car['user_id'] = $request->user()->id;
         $this->carService->create($car);
         return redirect()->route('cars.list');
@@ -53,5 +54,13 @@ class CarController extends Controller
         $newCar = $request->all();
         $this->carService->update($newCar, $id);
         return redirect()->route('cars.list');
+    }
+
+    public function addPhoto(Request $request)
+    {
+        $file = $request->file('file');
+        $id = $request->get('id');
+        $this->carService->addPhoto($file, $id);
+        return redirect()->route('cars.show', ['id' => $id]);
     }
 }

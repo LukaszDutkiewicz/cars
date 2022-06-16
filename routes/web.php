@@ -44,6 +44,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('update/{id}', [CarController::class, 'getUpdateView'])->name('getUpdateView');
 
             Route::post('update/{id}', [CarController::class, 'update'])->name('update');
+
+            Route::post('addPhoto', [CarController::class, 'addPhoto'])->name('addPhoto');
         }
 
     );
