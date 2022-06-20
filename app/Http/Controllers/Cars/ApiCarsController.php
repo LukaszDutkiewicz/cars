@@ -19,10 +19,10 @@ class ApiCarsController extends Controller
 
     public function list(Request $request)
     {
-        $vin = $request->get('vin');
-        $color = $request->get('color');
+        $vin = $request->get('vin') ? $request->get('vin') : "";
+        $color = $request->get('color') ? $request->get('color') : "";
         $minPrice = $request->get('minPrice') ? $request->get('minPrice') : 0;
-        $description = $request->get('description');
+        $description = $request->get('description') ? $request->get('description') : "";
         $cars = $this->carsService->list($vin, $description, $color, $minPrice);
         return response()->json(['cars' => $cars]);
     }

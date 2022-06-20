@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Vue - test</div>
@@ -18,15 +18,18 @@
                 </div>
             </div>
         </div>
-        <user-profile></user-profile>
+        <user-profile></user-profile> -->
+        <cars-list />
     </div>
 </template>
 
 <script>
 import UserProfile from './UserProfile.vue'
+import CarsList from "./Cars/List.vue"
 export default {
     components: {
-        UserProfile
+        UserProfile,
+        CarsList
     },
     data() {
         return {

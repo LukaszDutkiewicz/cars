@@ -17,6 +17,6 @@ class CarsService
     }
     public function list($vin, $description, $color, $minPrice)
     {
-        return $this->carModel->filterByVin($vin)->filterByDescription($description)->filterByColor($color)->filterByPrice($minPrice)->get();
+        return $this->carModel->filterByVin($vin)->filterByDescription($description)->filterByColor($color)->filterByPrice($minPrice)->with(['brand', 'model'])->get();
     }
 }
