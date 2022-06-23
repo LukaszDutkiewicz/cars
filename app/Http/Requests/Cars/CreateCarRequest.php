@@ -24,7 +24,7 @@ class CreateCarRequest extends FormRequest
     public function rules()
     {
         return [
-            'vin' => 'required_wihout:registration|min:4|max:10|unique:cars',
+            'vin' => 'required_without:registration|min:4|max:10|unique:cars',
             'color' => 'required|string',
             'price' => 'integer',
             'description' => 'string',

@@ -26,10 +26,12 @@
 <script>
 import UserProfile from './UserProfile.vue'
 import CarsList from "./Cars/List.vue"
+import CreateEmail from "./Cars/createEmail.vue"
 export default {
     components: {
         UserProfile,
-        CarsList
+        CarsList,
+        CreateEmail
     },
     data() {
         return {
